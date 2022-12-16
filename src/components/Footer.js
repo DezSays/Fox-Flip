@@ -10,7 +10,7 @@ const Footer = () => {
 
   <Navbar className='footer-container' bg="primary" variant="dark">
     <Container>
-      <Navbar.Brand href="#home">Jeopardy Placeholder</Navbar.Brand>
+      <Navbar.Brand href="#home">Fox-Flip Placeholder</Navbar.Brand>
       <Nav className="me-auto">
         <Nav.Link href="/AboutUs">About Us</Nav.Link>
         <Nav.Link href="#">Privacy Policy</Nav.Link>
