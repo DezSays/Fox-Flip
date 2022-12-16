@@ -1,22 +1,80 @@
 import React from 'react'
+import { useState } from 'react';
 
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import { v4 as uuidv4 } from 'uuid';
 
-const Registration = () => {
+export default function Registration(){
+
+  const [avatar, setAvatar] = useState('avatar is empty')
+  const [host, setHost] = useState(false)
+  const [user, setUser] = useState(false)
+
+  const handleChangeHost = async (event) => {
+    setHost(event.target.checked)
+  }
+  const handleChangeUser = async (event) => {
+    setUser(event.target.checked)
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log("first")
+    if(data.get('user') === null && data.get('host') === null){
+      //alert("Please select Host or User")
+      console.log('user and host are null')
+    }
+    if(data.get('user') === null){
+      setUser(false)
+    }
+    if(data.get('host') === null){
+      setHost(false)
+    }
+    if(data.get('avatar') === null){
+      setAvatar('avatar is empty')
+    }
+    const userID = uuidv4()
+    console.log({
+      userName: data.get('userName'), 
+      email: data.get('email'),      
+      password: data.get('password'),
+      avatar: avatar,
+      host: host,
+      user: user,
+      userID: userID
+    })
+      /* Sending a post request to the server. */
+      await fetch('http://localhost:3000/create_new_user', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json', //do i need this?
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({userID: userID, userName: data.get('userName'),email: data.get('email'),password: data.get('password'),
+      avatar: avatar, ranking: 0,amountWon: 0,})
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log('data: ',data);
+      if(data.created === true) {
+        alert("User Created")
+      }
+    })
+  }
   return (
     <>
       Registration
-
-      <Form className='regcontainer'>
+      <Form className='regcontainer' onSubmit={handleSubmit} >
       <Form.Group as={Row} className="mb-3" controlId="formHorizontalName">
-        <Form.Label column sm={2}>
-          Name
+        <Form.Label column sm={2} >
+        User name
         </Form.Label>
         <Col sm={3}>
-          <Form.Control type="name" placeholder="Name" />
+          <Form.Control type="name" placeholder="User name" name="userName" />
         </Col>
       </Form.Group>
 
@@ -25,7 +83,7 @@ const Registration = () => {
           Email
         </Form.Label>
         <Col sm={3}>
-          <Form.Control type="email" placeholder="Email" />
+          <Form.Control type="email" placeholder="Email" name="email" />
         </Col>
       </Form.Group>
 
@@ -34,7 +92,7 @@ const Registration = () => {
           Password
         </Form.Label>
         <Col sm={3}>
-          <Form.Control type="password" placeholder="Password" />
+          <Form.Control type="password" placeholder="Password" name="password"/>
         </Col>
       </Form.Group>
       <fieldset>
@@ -44,16 +102,20 @@ const Registration = () => {
           </Form.Label>
           <Col sm={3}>
             <Form.Check
-              type="radio"
+              type="checkbox"
+              value={false}
               label="Host - Create categories, games, and host games"
-              name="formHorizontalRadios"
+              name="host"
               id="formHorizontalRadios1"
+              onChange={(event)=>handleChangeHost(event)}
             />
             <Form.Check
-              type="radio"
+              type="checkbox"
+              value={false}
               label="User - Play games and view personal scoreboard"
-              name="formHorizontalRadios"
+              name="user"
               id="formHorizontalRadios2"
+              onChange={(event)=>handleChangeUser(event)}
             />
           </Col>
         </Form.Group>
@@ -76,6 +138,4 @@ const Registration = () => {
     </Form>
     </>
   )
-}
-
-export default Registration
+  }
