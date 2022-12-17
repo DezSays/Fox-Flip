@@ -62,7 +62,7 @@ function App() {
             <Router>
             <UserLayout>
             <Routes>
-              <Route path='/UserDashboard' element={<UserDashboard />} />
+              <Route path='/UserDashboard' element={<UserDashboard setNavbarState={setNavbarState} />} />
               <Route path='/Logout' element={<Logout setNavbarState={setNavbarState} />} />
             </Routes>
           </UserLayout>

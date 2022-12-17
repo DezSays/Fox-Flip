@@ -23,17 +23,7 @@ export default function Registration(){
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log("first")
-    if(data.get('user') === null && data.get('host') === null){
-      //alert("Please select Host or User")
-      console.log('user and host are null')
-    }
-    if(data.get('user') === null){
-      setUser(false)
-    }
-    if(data.get('host') === null){
-      setHost(false)
-    }
+ 
     if(data.get('avatar') === null){
       setAvatar('avatar is empty')
     }
@@ -51,19 +41,14 @@ export default function Registration(){
       await fetch('http://localhost:3000/create_new_user', {
       method: 'POST',
       headers: {
-        'Accept': 'application/json', //do i need this?
+        'Accept': 'application/json', 
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({userID: userID, userName: data.get('userName'),email: data.get('email'),password: data.get('password'),
       avatar: avatar, ranking: 0,amountWon: 0,})
     })
     .then((response) => response.json())
-    .then((data) => {
-      console.log('data: ',data);
-      if(data.created === true) {
-        alert("User Created")
-      }
-    })
+    .then((data) => console.log(data));
   }
   return (
     <>
@@ -102,25 +87,22 @@ export default function Registration(){
           </Form.Label>
           <Col sm={3}>
             <Form.Check
-              type="checkbox"
-              value={false}
+              type="radio"
               label="Host - Create categories, games, and host games"
-              name="host"
+              name="group Host and User"
               id="formHorizontalRadios1"
               onChange={(event)=>handleChangeHost(event)}
             />
             <Form.Check
-              type="checkbox"
-              value={false}
+              type="radio"
               label="User - Play games and view personal scoreboard"
-              name="user"
+              name="group Host and User"
               id="formHorizontalRadios2"
               onChange={(event)=>handleChangeUser(event)}
             />
           </Col>
         </Form.Group>
       </fieldset>
-
       <Form.Group  as={Row} className="mb-3" controlId="formFile">
         <Form.Label column sm={2}>
           Upload Profile Picture
@@ -129,7 +111,6 @@ export default function Registration(){
           <Form.Control type="file" />
         </Col>
       </Form.Group>
-
       <Form.Group as={Row} className="mb-3">
         <Col sm={{ span: 3, offset: 2 }}>
           <Button type="submit">Register</Button>
