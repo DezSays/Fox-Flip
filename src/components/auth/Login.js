@@ -8,9 +8,12 @@ import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
 
 
-const Login = ({setNavbarState}) => {
+const Login = ({setNavbarState, setLoggedInUser}) => {
+
   const [host, setHost] = useState(false)
   const [user, setUser] = useState(false)
+  
+
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -22,8 +25,8 @@ const Login = ({setNavbarState}) => {
   }
   const handleLogin = async (event) => {
     const data = new FormData(event.currentTarget);
+    const testName = data.get('userName')
     event.preventDefault();
-    
     console.log({
       userName: data.get('userName'), 
       password: data.get('password'),
@@ -46,14 +49,18 @@ const Login = ({setNavbarState}) => {
     console.log(serverData.serverMsg);
     console.log(serverData.serverStatus);
     console.log(serverData.serverCode);
+    console.log(testName);
     if(serverData.serverCode === 'GOOD'){ 
         if(host === true){      //set login as Host
           navigate('/HostDashboard')
           setNavbarState(2)
+          setLoggedInUser(testName)
         }
         else{                     //login as User
           navigate('/UserDashboard')
           setNavbarState(1)
+          setLoggedInUser(testName)
+          
         }}
     else{
       setErrorMessage(serverData.serverMsg)
