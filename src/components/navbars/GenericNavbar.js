@@ -6,7 +6,12 @@ import '../../styles/navbar.css'
 import { Link } from 'react-router-dom'
 
 
-const GenericNavbar = () => {
+const GenericNavbar = (props) => {
+  const avatarStuff = props.loggedInUser
+  console.log("this is UserNavBar "+props)
+  console.log("this is UserNavBar "+avatarStuff)
+
+  console.log(props)
     return (
       <Navbar collapseOnSelect expand="lg" bg="primary" variant="light">
       <Container>

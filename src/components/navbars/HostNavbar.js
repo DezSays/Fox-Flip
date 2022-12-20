@@ -5,8 +5,22 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
 import { Link } from 'react-router-dom'
+import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
-const HostNavbar = () => {
+import "./avatarIconNavbar.css"
+
+const HostNavbar = (props) => {
+
+  const navigate = useNavigate();
+
+  const userNameAvatar = props.userNameAvatar.slice(0, 3)
+
+  const userAvatarClick = ()=> {
+    navigate('/Logout');
+    <Link to="/Logout" className='path'>Logout</Link>
+  }
+
     return (
         <Navbar collapseOnSelect expand="lg" bg="primary" variant="light">
         <Container>
@@ -18,6 +32,7 @@ const HostNavbar = () => {
                 <Link to="/Logout" className='path'>Logout</Link>
               </Nav>
             </Navbar.Collapse>
+            <button onClick={userAvatarClick} className='my-avatar'>{userNameAvatar}</button>
         </Container>
         </Navbar>
       )

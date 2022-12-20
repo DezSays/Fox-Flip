@@ -16,13 +16,15 @@ import Registration from './components/auth/Registration.js'
 import CreateCategory from "./components/CreateCategory";
 import FooterLayout from "./components/layout/FooterLayout";
 import AboutUs from "./components/AboutUs";
+import HostNavbar from "./components/navbars/HostNavbar";
+import UserNavbar from "./components/navbars/UserNavbar";
 
 
 
 function App() {
     const [navbarState, setNavbarState] = useState(0);
-  
 
+    const [myUserName, setmyUserName] = useState()
     useEffect(() => {
       const data = localStorage.getItem('my-navbar-state');
       if (data){
@@ -37,15 +39,38 @@ function App() {
       localStorage.setItem("my-navbar-state", JSON.stringify(navbarState));
     });
 
+//testing saving logged user info!!! Below**********************************
+
+const [loggedInUser, setLoggedInUser] = useState("not logged in");
+
+    useEffect(() => {
+      const userLoggedIndata = localStorage.getItem('my-user-state');
+      if (userLoggedIndata){
+        setLoggedInUser(JSON.parse(userLoggedIndata));
+      }
+      else{
+        setLoggedInUser('no logged in user...')
+      }
+    }, []);
+  
+    useEffect(() => {
+      localStorage.setItem("my-user-state", JSON.stringify(loggedInUser));
+      setmyUserName(loggedInUser)
+    });
+
+
+//testing saving logged user info!!! Above**********************************
+
+
     if(navbarState === 0){
         console.log("this is navbarstate "+navbarState)
         return (
         <Router>
           <GenericLayout>
-            <Routes>
+            <Routes >
               <Route path='/' element={<LandingPage />} />
-              <Route path='/Login' element={<Login setNavbarState={setNavbarState}  />} />
-              <Route path='/Registration' element={<Registration />} />
+              <Route path='/Login' element={<Login setNavbarState={setNavbarState} setLoggedInUser={setLoggedInUser}  />} />
+              <Route path='/Registration' element={<Registration setLoggedInUser={setLoggedInUser}/>} />
             </Routes>
           </GenericLayout>
           <FooterLayout>
@@ -58,12 +83,13 @@ function App() {
     }
 
     if(navbarState === 1){
+      console.log("this is navbarstate "+navbarState)
         return(
             <Router>
             <UserLayout>
-            <Routes>
-              <Route path='/UserDashboard' element={<UserDashboard setNavbarState={setNavbarState} />} />
-              <Route path='/Logout' element={<Logout setNavbarState={setNavbarState} />} />
+            <Routes myUserName={myUserName}>
+              <Route path='/UserDashboard' element={<UserDashboard />} />
+              <Route path='/Logout' element={<Logout setNavbarState={setNavbarState}  />} />
             </Routes>
           </UserLayout>
           <FooterLayout>
@@ -75,15 +101,16 @@ function App() {
         );
     }
     if(navbarState === 2){
+      console.log("this is navbarstate "+navbarState)
         return(
             <Router>
             <HostLayout>
-            <Routes>
-              <Route path='/HostDashboard' element={<HostDashboard />} />
-              <Route path='/CreateCategory' element={<CreateCategory />} />
-              <Route path='/CreateGame' element={<CreateGame />} />
+            <Routes myUserName={myUserName}>
+              <Route path='/HostDashboard' element={<HostDashboard  />} />
+              <Route path='/CreateCategory' element={<CreateCategory  />} />
+              <Route path='/CreateGame' element={<CreateGame   />} />
               <Route path='/PlayGame' element={<PlayGame />} />
-              <Route path='/Logout' element={<Logout setNavbarState={setNavbarState} />} />
+              <Route path='/Logout' element={<Logout setNavbarState={setNavbarState}   />} />
             </Routes>
           </HostLayout>
           <FooterLayout>
