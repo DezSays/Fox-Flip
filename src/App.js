@@ -23,8 +23,8 @@ import UserNavbar from "./components/navbars/UserNavbar";
 
 function App() {
     const [navbarState, setNavbarState] = useState(0);
-
     const [myUserName, setmyUserName] = useState()
+    const [loggedInUser, setLoggedInUser] = useState("not logged in");
     useEffect(() => {
       const data = localStorage.getItem('my-navbar-state');
       if (data){
@@ -38,11 +38,7 @@ function App() {
     useEffect(() => {
       localStorage.setItem("my-navbar-state", JSON.stringify(navbarState));
     });
-
-//testing saving logged user info!!! Below**********************************
-
-const [loggedInUser, setLoggedInUser] = useState("not logged in");
-
+    
     useEffect(() => {
       const userLoggedIndata = localStorage.getItem('my-user-state');
       if (userLoggedIndata){
@@ -59,7 +55,6 @@ const [loggedInUser, setLoggedInUser] = useState("not logged in");
     });
 
 
-//testing saving logged user info!!! Above**********************************
 
 
     if(navbarState === 0){
@@ -69,8 +64,8 @@ const [loggedInUser, setLoggedInUser] = useState("not logged in");
           <GenericLayout>
             <Routes >
               <Route path='/' element={<LandingPage />} />
-              <Route path='/Login' element={<Login setNavbarState={setNavbarState} setLoggedInUser={setLoggedInUser}  />} />
-              <Route path='/Registration' element={<Registration setLoggedInUser={setLoggedInUser}/>} />
+              <Route path='/Login'        element={<Login        setNavbarState={setNavbarState} setLoggedInUser={setLoggedInUser}/>} />
+              <Route path='/Registration' element={<Registration setNavbarState={setNavbarState} setLoggedInUser={setLoggedInUser}/>} />
             </Routes>
           </GenericLayout>
           <FooterLayout>
