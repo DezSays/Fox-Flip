@@ -14,8 +14,8 @@ const PlayGame = () => {
           {/* CARD COL 1 */}
           <div className='my-card-col'>
 
-        <Card className="my-card-catagory">
-          <Card.Body><Card.Title className='catagory-card-title'>Catagory</Card.Title>
+        <Card className="my-card-category">
+          <Card.Body><Card.Title className='category-card-title'>Category</Card.Title>
           </Card.Body>
         </Card>
 
@@ -57,8 +57,8 @@ const PlayGame = () => {
           {/* CARD COL 2 */}
           <div className='my-card-col'>
 
-          <Card className="my-card-catagory">
-            <Card.Body><Card.Title className='catagory-card-title'>Catagory</Card.Title>
+          <Card className="my-card-category">
+            <Card.Body><Card.Title className='category-card-title'>Category</Card.Title>
             </Card.Body>
           </Card>
 
@@ -101,8 +101,8 @@ const PlayGame = () => {
              {/* CARD COL 3 */}
              <div className='my-card-col'>
 
-          <Card className="my-card-catagory">
-            <Card.Body><Card.Title className='catagory-card-title'>Catagory</Card.Title>
+          <Card className="my-card-category">
+            <Card.Body><Card.Title className='category-card-title'>Category</Card.Title>
             </Card.Body>
           </Card>
 
@@ -144,8 +144,8 @@ const PlayGame = () => {
        {/* CARD COL 4 */}
        <div className='my-card-col'>
 
-          <Card className="my-card-catagory">
-            <Card.Body><Card.Title className='catagory-card-title'>Catagory</Card.Title>
+          <Card className="my-card-category">
+            <Card.Body><Card.Title className='category-card-title'>Category</Card.Title>
             </Card.Body>
           </Card>
 
@@ -188,8 +188,8 @@ const PlayGame = () => {
               {/* CARD COL 5 */}
       <div className='my-card-col'>
 
-          <Card className="my-card-catagory">
-            <Card.Body><Card.Title className='catagory-card-title'>Catagory</Card.Title>
+          <Card className="my-card-category">
+            <Card.Body><Card.Title className='category-card-title'>Category</Card.Title>
             </Card.Body>
           </Card>
 
@@ -231,8 +231,8 @@ const PlayGame = () => {
 
             {/* CARD COL 6 */}
       <div className='my-card-col'>
-          <Card className="my-card-catagory">
-            <Card.Body><Card.Title className='catagory-card-title'>Catagory</Card.Title>
+          <Card className="my-card-category">
+            <Card.Body><Card.Title className='category-card-title'>Category</Card.Title>
             </Card.Body>
           </Card>
 
