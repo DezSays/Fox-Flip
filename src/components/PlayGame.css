@@ -21,7 +21,7 @@ body {
     flex-direction: column;
 }
 
-.my-card-catagory{
+.my-card-category{
     height: 80px;
 
     width: 100%;
@@ -34,7 +34,7 @@ body {
     box-shadow: 0 4px 8px 0 #115FF3;
     border: 3px solid #115FF3;
 }
-.catagory-card-title{
+.category-card-title{
     font-size: 30px;
     color: #115FF3;
 }

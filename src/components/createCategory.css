@@ -1,0 +1,23 @@
+
+.create-category-main-title{
+    text-align: center;
+    font-size: x-large;
+}
+
+
+.mb-3{
+    margin-left: 15px;
+    margin-right: 10%;
+}
+
+.answer{
+    font-size: larger;
+}
+.question{
+    font-size: larger;
+}
+.add-category-Button{
+    margin-bottom: 70px;
+    float: right;
+    margin-right: 10%;
+}
