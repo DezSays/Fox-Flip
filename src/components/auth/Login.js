@@ -9,13 +9,10 @@ import { useState } from 'react';
 
 
 const Login = ({setNavbarState, setLoggedInUser}) => {
-
   const [host, setHost] = useState(false)
   const [user, setUser] = useState(false)
-  
-
-  const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleChangeHost = async (event) => {
     setHost(event.target.checked)
@@ -25,20 +22,19 @@ const Login = ({setNavbarState, setLoggedInUser}) => {
   }
   const handleLogin = async (event) => {
     const data = new FormData(event.currentTarget);
-    const testName = data.get('userName')
     event.preventDefault();
     console.log({
       userName: data.get('userName'), 
       password: data.get('password'),
-      user: user,
-      host: host
+      user,
+      host
     })
     if(host === null && user === false){
       setErrorMessage('Please select Host or User to continue');
     }
     else{
       setErrorMessage('')
-      const response= await fetch('http://localhost:3000/Login', {
+      const response = await fetch('http://localhost:3000/Login', {
         method: 'POST', // or 'PUT'
         headers: {
           'Content-Type': 'application/json',
@@ -49,18 +45,16 @@ const Login = ({setNavbarState, setLoggedInUser}) => {
     console.log(serverData.serverMsg);
     console.log(serverData.serverStatus);
     console.log(serverData.serverCode);
-    console.log(testName);
     if(serverData.serverCode === 'GOOD'){ 
         if(host === true){      //set login as Host
           navigate('/HostDashboard')
           setNavbarState(2)
-          setLoggedInUser(testName)
+          setLoggedInUser(data.get('userName'))
         }
         else{                     //login as User
           navigate('/UserDashboard')
           setNavbarState(1)
-          setLoggedInUser(testName)
-          
+          setLoggedInUser(data.get('userName'))
         }}
     else{
       setErrorMessage(serverData.serverMsg)

@@ -7,11 +7,15 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import { v4 as uuidv4 } from 'uuid';
 
-export default function Registration(){
+import { useNavigate } from "react-router-dom";
+
+export default function Registration({setNavbarState, setLoggedInUser}){
 
   const [avatar, setAvatar] = useState('avatar is empty')
   const [host, setHost] = useState(false)
   const [user, setUser] = useState(false)
+
+  const navigate = useNavigate();
 
   const handleChangeHost = async (event) => {
     setHost(event.target.checked)
@@ -23,7 +27,6 @@ export default function Registration(){
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
- 
     if(data.get('avatar') === null){
       setAvatar('avatar is empty')
     }
@@ -32,13 +35,13 @@ export default function Registration(){
       userName: data.get('userName'), 
       email: data.get('email'),      
       password: data.get('password'),
-      avatar: avatar,
-      host: host,
-      user: user,
-      userID: userID
+      avatar,
+      host,
+      user,
+      userID
     })
       /* Sending a post request to the server. */
-      await fetch('http://localhost:3000/create_new_user', {
+      const response = await fetch('http://localhost:3000/registration', {
       method: 'POST',
       headers: {
         'Accept': 'application/json', 
@@ -47,8 +50,21 @@ export default function Registration(){
       body: JSON.stringify({userID: userID, userName: data.get('userName'),email: data.get('email'),password: data.get('password'),
       avatar: avatar, ranking: 0,amountWon: 0,})
     })
-    .then((response) => response.json())
-    .then((data) => console.log(data));
+    const serverData = await response.json();
+    console.log(serverData.serverMsg);
+    console.log(serverData.serverStatus);
+    console.log(serverData.serverCode);
+    if(serverData.serverCode === 'GOOD'){ 
+      if(host === true){      //set login as Host
+        navigate('/HostDashboard')
+        setNavbarState(2)
+        setLoggedInUser(data.get('userName'))
+      }
+      else{                     //login as User
+        navigate('/UserDashboard')
+        setNavbarState(1)
+        setLoggedInUser(data.get('userName'))
+      }}
   }
   return (
     <>
