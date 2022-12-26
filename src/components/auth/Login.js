@@ -7,12 +7,13 @@ import Row from 'react-bootstrap/Row';
 import { useNavigate } from "react-router-dom";
 import { useState } from 'react';
 
-
-const Login = ({setNavbarState, setLoggedInUser}) => {
+const Login = ({setNavbarState, loggedInUser, setLoggedInUser}) => {
   const [host, setHost] = useState(false)
   const [user, setUser] = useState(false)
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
+
+  console.log("this is the user Info before login is complete "+loggedInUser.userName)
 
   const handleChangeHost = async (event) => {
     setHost(event.target.checked)
@@ -23,6 +24,7 @@ const Login = ({setNavbarState, setLoggedInUser}) => {
   const handleLogin = async (event) => {
     const data = new FormData(event.currentTarget);
     event.preventDefault();
+
     console.log({
       userName: data.get('userName'), 
       password: data.get('password'),
@@ -42,6 +44,7 @@ const Login = ({setNavbarState, setLoggedInUser}) => {
         body: JSON.stringify({userName: data.get('userName'),password: data.get('password')})
     })
     const serverData = await response.json();
+    console.log(serverData.userID);
     console.log(serverData.serverMsg);
     console.log(serverData.serverStatus);
     console.log(serverData.serverCode);
@@ -49,12 +52,12 @@ const Login = ({setNavbarState, setLoggedInUser}) => {
         if(host === true){      //set login as Host
           navigate('/HostDashboard')
           setNavbarState(2)
-          setLoggedInUser(data.get('userName'))
+          setLoggedInUser({"userName": data.get('userName'), userID: serverData.userID})
         }
         else{                     //login as User
           navigate('/UserDashboard')
           setNavbarState(1)
-          setLoggedInUser(data.get('userName'))
+          setLoggedInUser({"userName": data.get('userName'), userID: serverData.userID})
         }}
     else{
       setErrorMessage(serverData.serverMsg)

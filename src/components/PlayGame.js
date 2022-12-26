@@ -20,17 +20,7 @@ const PlayGame = () => {
         </Card>
 
         <Card className="my-card-answer">
-          <Card.Body><Card.Title className='anwser-card-title'>500</Card.Title>
-          </Card.Body>
-        </Card>
-
-        <Card className="my-card-answer">
-          <Card.Body><Card.Title className='anwser-card-title'>400</Card.Title>
-          </Card.Body>
-        </Card>
-
-        <Card className="my-card-answer">
-          <Card.Body><Card.Title className='anwser-card-title'>300</Card.Title>
+          <Card.Body><Card.Title className='anwser-card-title'>100</Card.Title>
           </Card.Body>
         </Card>
 
@@ -40,7 +30,17 @@ const PlayGame = () => {
         </Card>
 
         <Card className="my-card-answer">
-          <Card.Body><Card.Title className='anwser-card-title'>100</Card.Title>
+          <Card.Body><Card.Title className='anwser-card-title'>300</Card.Title>
+          </Card.Body>
+        </Card>
+
+        <Card className="my-card-answer">
+          <Card.Body><Card.Title className='anwser-card-title'>400</Card.Title>
+          </Card.Body>
+        </Card>
+
+        <Card className="my-card-answer">
+          <Card.Body><Card.Title className='anwser-card-title'>500</Card.Title>
           </Card.Body>
         </Card>
 
@@ -63,17 +63,7 @@ const PlayGame = () => {
           </Card>
 
           <Card className="my-card-answer">
-            <Card.Body><Card.Title className='anwser-card-title'>500</Card.Title>
-            </Card.Body>
-          </Card>
-
-          <Card className="my-card-answer">
-            <Card.Body><Card.Title className='anwser-card-title'>400</Card.Title>
-            </Card.Body>
-          </Card>
-
-          <Card className="my-card-answer">
-            <Card.Body><Card.Title className='anwser-card-title'>300</Card.Title>
+            <Card.Body><Card.Title className='anwser-card-title'>100</Card.Title>
             </Card.Body>
           </Card>
 
@@ -83,7 +73,17 @@ const PlayGame = () => {
           </Card>
 
           <Card className="my-card-answer">
-            <Card.Body><Card.Title className='anwser-card-title'>100</Card.Title>
+            <Card.Body><Card.Title className='anwser-card-title'>300</Card.Title>
+            </Card.Body>
+          </Card>
+
+          <Card className="my-card-answer">
+            <Card.Body><Card.Title className='anwser-card-title'>400</Card.Title>
+            </Card.Body>
+          </Card>
+
+          <Card className="my-card-answer">
+            <Card.Body><Card.Title className='anwser-card-title'>500</Card.Title>
             </Card.Body>
           </Card>
 
@@ -107,17 +107,7 @@ const PlayGame = () => {
           </Card>
 
           <Card className="my-card-answer">
-            <Card.Body><Card.Title className='anwser-card-title'>500</Card.Title>
-            </Card.Body>
-          </Card>
-
-          <Card className="my-card-answer">
-            <Card.Body><Card.Title className='anwser-card-title'>400</Card.Title>
-            </Card.Body>
-          </Card>
-
-          <Card className="my-card-answer">
-            <Card.Body><Card.Title className='anwser-card-title'>300</Card.Title>
+            <Card.Body><Card.Title className='anwser-card-title'>100</Card.Title>
             </Card.Body>
           </Card>
 
@@ -127,7 +117,17 @@ const PlayGame = () => {
           </Card>
 
           <Card className="my-card-answer">
-            <Card.Body><Card.Title className='anwser-card-title'>100</Card.Title>
+            <Card.Body><Card.Title className='anwser-card-title'>300</Card.Title>
+            </Card.Body>
+          </Card>
+
+          <Card className="my-card-answer">
+            <Card.Body><Card.Title className='anwser-card-title'>400</Card.Title>
+            </Card.Body>
+          </Card>
+
+          <Card className="my-card-answer">
+            <Card.Body><Card.Title className='anwser-card-title'>500</Card.Title>
             </Card.Body>
           </Card>
 
@@ -150,17 +150,7 @@ const PlayGame = () => {
           </Card>
 
           <Card className="my-card-answer">
-            <Card.Body><Card.Title className='anwser-card-title'>500</Card.Title>
-            </Card.Body>
-          </Card>
-
-          <Card className="my-card-answer">
-            <Card.Body><Card.Title className='anwser-card-title'>400</Card.Title>
-            </Card.Body>
-          </Card>
-
-          <Card className="my-card-answer">
-            <Card.Body><Card.Title className='anwser-card-title'>300</Card.Title>
+            <Card.Body><Card.Title className='anwser-card-title'>100</Card.Title>
             </Card.Body>
           </Card>
 
@@ -170,7 +160,17 @@ const PlayGame = () => {
           </Card>
 
           <Card className="my-card-answer">
-            <Card.Body><Card.Title className='anwser-card-title'>100</Card.Title>
+            <Card.Body><Card.Title className='anwser-card-title'>300</Card.Title>
+            </Card.Body>
+          </Card>
+
+          <Card className="my-card-answer">
+            <Card.Body><Card.Title className='anwser-card-title'>400</Card.Title>
+            </Card.Body>
+          </Card>
+
+          <Card className="my-card-answer">
+            <Card.Body><Card.Title className='anwser-card-title'>500</Card.Title>
             </Card.Body>
           </Card>
 
@@ -194,17 +194,7 @@ const PlayGame = () => {
           </Card>
 
           <Card className="my-card-answer">
-            <Card.Body><Card.Title className='anwser-card-title'>500</Card.Title>
-            </Card.Body>
-          </Card>
-
-          <Card className="my-card-answer">
-            <Card.Body><Card.Title className='anwser-card-title'>400</Card.Title>
-            </Card.Body>
-          </Card>
-
-          <Card className="my-card-answer">
-            <Card.Body><Card.Title className='anwser-card-title'>300</Card.Title>
+            <Card.Body><Card.Title className='anwser-card-title'>100</Card.Title>
             </Card.Body>
           </Card>
 
@@ -214,7 +204,17 @@ const PlayGame = () => {
           </Card>
 
           <Card className="my-card-answer">
-            <Card.Body ><Card.Title className='anwser-card-title'>100</Card.Title>
+            <Card.Body><Card.Title className='anwser-card-title'>300</Card.Title>
+            </Card.Body>
+          </Card>
+
+          <Card className="my-card-answer">
+            <Card.Body><Card.Title className='anwser-card-title'>400</Card.Title>
+            </Card.Body>
+          </Card>
+
+          <Card className="my-card-answer">
+            <Card.Body ><Card.Title className='anwser-card-title'>500</Card.Title>
             </Card.Body>
           </Card>
 
@@ -237,12 +237,12 @@ const PlayGame = () => {
           </Card>
 
           <Card className="my-card-answer">
-            <Card.Body><Card.Title className='anwser-card-title'>500</Card.Title>
+            <Card.Body><Card.Title className='anwser-card-title'>100</Card.Title>
             </Card.Body>
           </Card>
 
           <Card  className="my-card-answer">
-            <Card.Body><Card.Title className='anwser-card-title'>400</Card.Title>
+            <Card.Body><Card.Title className='anwser-card-title'>200</Card.Title>
             </Card.Body>
           </Card>
 
@@ -252,12 +252,12 @@ const PlayGame = () => {
           </Card>
 
           <Card  className="my-card-answer">
-            <Card.Body><Card.Title className='anwser-card-title'>200</Card.Title>
+            <Card.Body><Card.Title className='anwser-card-title'>400</Card.Title>
             </Card.Body>
           </Card>
 
           <Card  className="my-card-answer">
-            <Card.Body><Card.Title className='anwser-card-title'>100</Card.Title>
+            <Card.Body><Card.Title className='anwser-card-title'>500</Card.Title>
             </Card.Body>
           </Card>
 

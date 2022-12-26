@@ -1,7 +1,7 @@
 import React from 'react'
 import UserNavbar from '../navbars/UserNavbar.js'
 
-const UserLayout = ({children},props) => {
+const UserLayout = ({children}) => {
 
   const userNameAvatar = children.props.myUserName;
   return (
