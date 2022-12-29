@@ -25,6 +25,9 @@ function App() {
     const [navbarState, setNavbarState] = useState(0);
     const [myUserName, setmyUserName] = useState()
     const [loggedInUser, setLoggedInUser] = useState("not logged in");
+
+
+
     useEffect(() => {
       const data = localStorage.getItem('my-navbar-state');
       if (data){
@@ -38,7 +41,7 @@ function App() {
     useEffect(() => {
       localStorage.setItem("my-navbar-state", JSON.stringify(navbarState));
     });
-    
+
     useEffect(() => {
       const userLoggedIndata = localStorage.getItem('my-user-state');
       if (userLoggedIndata){
@@ -54,18 +57,16 @@ function App() {
       setmyUserName(loggedInUser)
     });
 
-
-
-
     if(navbarState === 0){
+                                                          //this is generic
         console.log("this is navbarstate "+navbarState)
         return (
         <Router>
-          <GenericLayout>
-            <Routes >
+          <GenericLayout loggedInUser={loggedInUser} >
+            <Routes myUserName={myUserName}>
               <Route path='/' element={<LandingPage />} />
-              <Route path='/Login'        element={<Login        setNavbarState={setNavbarState} setLoggedInUser={setLoggedInUser}/>} />
-              <Route path='/Registration' element={<Registration setNavbarState={setNavbarState} setLoggedInUser={setLoggedInUser}/>} />
+              <Route path='/Login'        element={<Login loggedInUser={loggedInUser} setNavbarState={setNavbarState} setLoggedInUser={setLoggedInUser}/>} />
+              <Route path='/Registration' element={<Registration setNavbarState={setNavbarState}   loggedInUser={loggedInUser}        setLoggedInUser={setLoggedInUser}/>} />
             </Routes>
           </GenericLayout>
           <FooterLayout>
@@ -78,10 +79,11 @@ function App() {
     }
 
     if(navbarState === 1){
+                                                              //this is User
       console.log("this is navbarstate "+navbarState)
         return(
             <Router>
-            <UserLayout>
+            <UserLayout loggedInUser={loggedInUser}>
             <Routes myUserName={myUserName}>
               <Route path='/UserDashboard' element={<UserDashboard />} />
               <Route path='/Logout' element={<Logout setNavbarState={setNavbarState}  />} />
@@ -96,14 +98,15 @@ function App() {
         );
     }
     if(navbarState === 2){
+                                                              //this is Host
       console.log("this is navbarstate "+navbarState)
         return(
             <Router>
-            <HostLayout>
-            <Routes myUserName={myUserName}>
-              <Route path='/HostDashboard' element={<HostDashboard  />} />
-              <Route path='/CreateCategory' element={<CreateCategory  />} />
-              <Route path='/CreateGame' element={<CreateGame   />} />
+            <HostLayout loggedInUser={loggedInUser}>
+            <Routes  myUserName={myUserName}>
+              <Route path='/HostDashboard' element={<HostDashboard />} />
+              <Route path='/CreateCategory' element={<CreateCategory loggedInUser={loggedInUser}  />} />
+              <Route path='/CreateGame' element={<CreateGame />} />
               <Route path='/PlayGame' element={<PlayGame />} />
               <Route path='/Logout' element={<Logout setNavbarState={setNavbarState}   />} />
             </Routes>

@@ -58,12 +58,12 @@ export default function Registration({setNavbarState, setLoggedInUser}){
       if(host === true){      //set login as Host
         navigate('/HostDashboard')
         setNavbarState(2)
-        setLoggedInUser(data.get('userName'))
+        setLoggedInUser({"userName": data.get('userName'), userID})
       }
       else{                     //login as User
         navigate('/UserDashboard')
         setNavbarState(1)
-        setLoggedInUser(data.get('userName'))
+        setLoggedInUser({"userName": data.get('userName'), userID})
       }}
   }
   return (

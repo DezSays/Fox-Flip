@@ -4,7 +4,6 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-import { useState } from 'react';
 import { Link } from 'react-router-dom'
 
 import "./avatarIconNavbar.css"
@@ -13,8 +12,10 @@ import { useNavigate } from "react-router-dom";
 const UserNavbar = (props) => {
 
   const navigate = useNavigate();
+  const userNameAvatar = props.userNameAvatar.userName
 
-  const userNameAvatar = props.userNameAvatar.slice(0, 3)
+  //TODO FIX below, slice creates error from tome to time after refresh or registration
+  //const userNameAvatar = props.userNameAvatar.userName.slice(0, 3)
 
   const userAvatarClick = ()=> {
     navigate('/Logout');
